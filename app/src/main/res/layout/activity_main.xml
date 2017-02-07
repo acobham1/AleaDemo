@@ -4,8 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
-    tools:context="com.example.aleac.aleademo.MainActivity">
+    android:background="@android:color/black">
 
 
     <RelativeLayout
@@ -28,8 +27,9 @@
         <ImageButton
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:background="@color/white"
+            android:background="@android:color/transparent"
             android:layout_marginLeft="12dp"
+            android:src="@drawable/bt_style"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"/>
 
