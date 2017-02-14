@@ -2,6 +2,8 @@ package alea.aleademo;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
@@ -16,11 +18,19 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import alea.aleademo.Adapter.ListViewAdapter;
+import alea.aleademo.Adapter.ViewPagerAdapter;
 import alea.aleademo.R;
+import alea.aleademo.fragment.ContentFragment;
+import alea.aleademo.fragment.HistoryFragment;
+import alea.aleademo.fragment.LoginFragment;
 
 public class ListViewActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private ListView listView;
+    private ViewPager viewPager;
+    private ArrayList<Fragment> fragmentList = new ArrayList<Fragment>();
     private ArrayList<String> listResult;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +43,13 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
     }
 
     private void createFakeResult(){
-        listResult.add("A");
-        listResult.add("B");
-        listResult.add("C");
-        listResult.add("D");
-        listResult.add("E");
+        listResult.add("AAAAAAAAAAAAAAA");
+        listResult.add("BBBBBBBBBBBBB");
+        listResult.add("CCCCCC");
+        listResult.add("DD");
+        listResult.add("EEEEEEEE");
         listResult.add("F");
-        listResult.add("G");
+        listResult.add("GGGGGG");
         listResult.add("H");
         listResult.add("I");
         listResult.add("J");
@@ -70,7 +80,18 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
         listView.setAdapter(listViewAdapter);
         listView.setOnItemClickListener(this);
 
+//        setContentView(R.layout.list_view_header);
+//        viewPager = (ViewPager) findViewById(R.id.view_list_view_header);
+//        fragmentList.add(new LoginFragment());
+//        fragmentList.add(new ContentFragment());
+//        fragmentList.add(new HistoryFragment());
+//        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
+//        viewPagerAdapter.setContent(fragmentList);
+//        viewPager.setAdapter(viewPagerAdapter);
+
     }
+
+
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(this, "listView was clicked at position: " + position, Toast.LENGTH_SHORT).show();
