@@ -1,6 +1,7 @@
 package alea.aleademo;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -21,8 +22,11 @@ import alea.aleademo.Adapter.ListViewAdapter;
 import alea.aleademo.Adapter.ViewPagerAdapter;
 import alea.aleademo.R;
 import alea.aleademo.fragment.ContentFragment;
+import alea.aleademo.fragment.FirstFragment;
 import alea.aleademo.fragment.HistoryFragment;
 import alea.aleademo.fragment.LoginFragment;
+import alea.aleademo.fragment.SecondFragment;
+import alea.aleademo.fragment.ThirdFragment;
 
 public class ListViewActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private ListView listView;
@@ -80,14 +84,13 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
         listView.setAdapter(listViewAdapter);
         listView.setOnItemClickListener(this);
 
-//        setContentView(R.layout.list_view_header);
-//        viewPager = (ViewPager) findViewById(R.id.view_list_view_header);
-//        fragmentList.add(new LoginFragment());
-//        fragmentList.add(new ContentFragment());
-//        fragmentList.add(new HistoryFragment());
-//        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
-//        viewPagerAdapter.setContent(fragmentList);
-//        viewPager.setAdapter(viewPagerAdapter);
+        viewPager = (ViewPager) view.findViewById(R.id.view_list_view_header);
+        fragmentList.add(new FirstFragment());
+        fragmentList.add(new SecondFragment());
+        fragmentList.add(new ThirdFragment());
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
+        viewPagerAdapter.setContent(fragmentList);
+        viewPager.setAdapter(viewPagerAdapter);
 
     }
 
@@ -96,5 +99,12 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(this, "listView was clicked at position: " + position, Toast.LENGTH_SHORT).show();
         Log.d("testListViewActivity", String.valueOf(position));
+    }
+
+    public void onBackPressed(){
+        Intent intent = new Intent();
+        intent.putExtra("message", "ListView");
+        setResult(RESULT_OK, intent);
+        super.onBackPressed();
     }
 }

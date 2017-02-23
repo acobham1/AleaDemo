@@ -2,6 +2,7 @@ package alea.aleademo;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AlertDialog;
@@ -10,6 +11,7 @@ import android.widget.RadioGroup;
 
 import java.util.ArrayList;
 
+import alea.aleademo.dialog.CustomDialog;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -50,10 +52,25 @@ public class DialogActivity extends BaseActivity {
               inputDialog();
               break;
           case R.id.rb8:
+              customDialog();
               break;
 
           default:
       }
+    }
+
+    private void customDialog() {
+        final CustomDialog dialog = new CustomDialog(this, new CustomDialog.ICustomDialogEventListener() {
+            @Override
+            public void OnClickListener() {
+                Intent intent = new Intent();
+                intent.putExtra("message", "Dialog");
+                setResult(RESULT_OK, intent);
+                //super.onBackPressed();
+                finish();
+            }
+        });
+        dialog.show();
     }
 
 
