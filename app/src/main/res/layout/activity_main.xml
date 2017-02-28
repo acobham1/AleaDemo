@@ -89,4 +89,19 @@
         >
 
     </ListView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_bar"
+        android:layout_above="@+id/tool_bar"
+        android:background="@android:color/white">
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:id="@+id/main_timer_bt"
+            android:text="Timer"
+            android:textAllCaps="false"
+            android:textSize="20sp"/>
+    </FrameLayout>
 </RelativeLayout>

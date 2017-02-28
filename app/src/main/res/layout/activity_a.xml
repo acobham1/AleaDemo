@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="A"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="400sp"/>
+<LinearLayout
+    android:id="@+id/tool_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@android:color/black"
+    >
+
+    <Button
+        android:id="@+id/bt1a"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="to A"
+        android:layout_weight="1"
+        android:layout_margin="6dp"
+        android:background="@color/white"/>
+
+    <Button
+        android:id="@+id/bt2b"
+        android:text="to B"
+        android:onClick="onClick"
+        android:layout_width="0dp"
+        android:layout_margin="6dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"/>
+
+    <Button
+        android:id="@+id/bt3c"
+        android:layout_width="0dp"
+        android:text="to C"
+        android:layout_margin="6dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"/>
+    <Button
+        android:id="@+id/bt4d"
+        android:layout_width="0dp"
+        android:text="to D"
+        android:layout_margin="6dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/white"/>
+
+
+</LinearLayout>
+</LinearLayout>

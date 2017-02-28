@@ -7,8 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import java.util.Timer;
+
 import alea.aleademo.R;
 import alea.aleademo.bean.Book;
+import alea.aleademo.util.TimerActivity;
 import alea.aleademo.util.UtilLog;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -21,12 +25,22 @@ public class MainActivity extends BaseActivity {
 
     private ImageButton bt1;
     private ImageButton bt3;
-    private ImageButton btRight;
+
 
    @OnClick(R.id.bt2)
     public void button2Click(){
        Intent intent = new Intent(this, DialogActivity.class);
        startActivityForResult(intent, 2);
+    }
+    @OnClick(R.id.button_right)
+    public void buttonRightClick(){
+        Intent intent = new Intent(this, activity_a.class);
+        startActivityForResult(intent, 4);
+    }
+    @OnClick(R.id.main_timer_bt)
+    public void toTimer(){
+        toActivity(TimerActivity.class);
+
     }
 
     @Override
@@ -68,17 +82,9 @@ public class MainActivity extends BaseActivity {
                 startActivityForResult(intent, 3);
                 toActivity(ListViewActivity.class);
             }
-        });
-        btRight = (ImageButton) findViewById(R.id.button_right);
-        btRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ABCDActivity.class);
-                startActivityForResult(intent, 4);
-                toActivity(ABCDActivity.class);
-            }
-        });
-    }
+        });}
+
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch(requestCode){
@@ -93,6 +99,9 @@ public class MainActivity extends BaseActivity {
                 toastShort("ListView");
                 break;
             case 4: toastShort("ABCD Activity");
+                break;
+            case 5:
+                toastShort("Timer Activity");
             default:
         }
     }
