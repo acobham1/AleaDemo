@@ -27,11 +27,19 @@ public class MainActivity extends BaseActivity {
     private ImageButton bt3;
 
 
+
+
    @OnClick(R.id.bt2)
     public void button2Click(){
        Intent intent = new Intent(this, DialogActivity.class);
        startActivityForResult(intent, 2);
     }
+
+    @OnClick(R.id.main_anim_bt)
+    public void toAnimation(){
+        toActivity(AnimationActivity.class);
+    }
+
     @OnClick(R.id.button_right)
     public void buttonRightClick(){
         Intent intent = new Intent(this, activity_a.class);
@@ -40,7 +48,6 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.main_timer_bt)
     public void toTimer(){
         toActivity(TimerActivity.class);
-
     }
 
     @Override

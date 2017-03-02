@@ -103,5 +103,14 @@
             android:text="Timer"
             android:textAllCaps="false"
             android:textSize="20sp"/>
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="60dp"
+            android:text="Animation"
+            android:textAllCaps="false"
+            android:id="@+id/main_anim_bt"
+            />
     </FrameLayout>
 </RelativeLayout>
