@@ -21,7 +21,7 @@
             android:textSize="30sp"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="@android:color/white"
             />
 
         <ImageButton
@@ -58,7 +58,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_margin="6dp"
-            android:background="@color/white"/>
+            android:background="@android:color/white"/>
 
         <ImageButton
             android:id="@+id/bt2"
@@ -67,7 +67,7 @@
             android:layout_margin="6dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/white"/>
+            android:background="@android:color/white"/>
 
         <ImageButton
             android:id="@+id/bt3"
@@ -75,7 +75,7 @@
             android:layout_margin="6dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/white"/>
+            android:background="@android:color/white"/>
 
 
     </LinearLayout>
@@ -85,12 +85,13 @@
         android:layout_below="@id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@android:color/white"
         >
 
     </ListView>
 
     <FrameLayout
+        android:id="@+id/main_fl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/title_bar"
@@ -111,6 +112,14 @@
             android:text="Animation"
             android:textAllCaps="false"
             android:id="@+id/main_anim_bt"
+            />
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="120dp"
+            android:text="Animator"
+            android:textAllCaps="false"
+            android:id="@+id/animator_bt"
             />
     </FrameLayout>
 </RelativeLayout>

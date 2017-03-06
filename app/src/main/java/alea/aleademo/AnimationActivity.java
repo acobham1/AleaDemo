@@ -2,6 +2,7 @@ package alea.aleademo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -53,6 +54,14 @@ public class AnimationActivity extends BaseActivity {
         setContentView(R.layout.activity_animation);
         ButterKnife.bind(this);
         initialAnimation();
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toastShort("Click");
+            }
+        });
+
+
 
     }
 private void initialAnimation(){
