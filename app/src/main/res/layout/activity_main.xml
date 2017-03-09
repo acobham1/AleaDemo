@@ -46,11 +46,16 @@
 
 
     <LinearLayout
+
         android:id="@+id/tool_bar"
         android:layout_width="match_parent"
         android:layout_height="58dp"
         android:background="@android:color/holo_green_light"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+
+        >
+
+
 
         <ImageButton
             android:id="@+id/bt1"
@@ -97,6 +102,9 @@
         android:layout_below="@+id/title_bar"
         android:layout_above="@+id/tool_bar"
         android:background="@android:color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <Button
             android:layout_width="100dp"
             android:layout_height="60dp"
@@ -108,7 +116,6 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="60dp"
-            android:layout_marginTop="60dp"
             android:text="Animation"
             android:textAllCaps="false"
             android:id="@+id/main_anim_bt"
@@ -116,10 +123,17 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="60dp"
-            android:layout_marginTop="120dp"
             android:text="Animator"
             android:textAllCaps="false"
             android:id="@+id/animator_bt"
-            />
+            /></LinearLayout>
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="Quiz 4"
+            android:layout_marginTop="60dp"
+            android:textAllCaps="false"
+            android:id="@+id/quiz_four_bt"></Button>
     </FrameLayout>
+
 </RelativeLayout>

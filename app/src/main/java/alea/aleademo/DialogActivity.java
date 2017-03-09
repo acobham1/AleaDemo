@@ -78,7 +78,7 @@ public class DialogActivity extends BaseActivity {
     }
 
     private void customDialog() {
-        final CustomDialog dialog = new CustomDialog(this, new CustomDialog.ICustomDialogEventListener() {
+        final CustomDialog dialog = new CustomDialog(this, new CustomDialog.ICustomDialogEventListener(){
             @Override
             public void OnClickListener() {
                 Intent intent = new Intent();

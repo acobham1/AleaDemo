@@ -33,7 +33,8 @@
             android:launchMode="singleInstance" />
         <activity android:name=".util.TimerActivity" />
         <activity android:name=".AnimationActivity" />
-        <activity android:name=".AnimatorActivity"></activity>
+        <activity android:name=".AnimatorActivity" />
+        <activity android:name=".util.QuizDialogActivity"></activity>
     </application>
 
 </manifest>

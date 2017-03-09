@@ -23,12 +23,11 @@ public class CustomDialog extends Dialog {
     }
 
 
-   private ICustomDialogEventListener listener;
+    private ICustomDialogEventListener listener;
 
 
     public interface ICustomDialogEventListener{
         public void OnClickListener();
-
         }
 
 

@@ -15,6 +15,7 @@ import java.util.Timer;
 
 import alea.aleademo.R;
 import alea.aleademo.bean.Book;
+import alea.aleademo.util.QuizDialogActivity;
 import alea.aleademo.util.TimerActivity;
 import alea.aleademo.util.UtilLog;
 import butterknife.BindView;
@@ -33,6 +34,11 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
 
     @BindView(R.id.main_fl) FrameLayout fl;
 
+    @OnClick(R.id.quiz_four_bt)
+    public void toQuiz4Button(){
+        Intent intent = new Intent(this, QuizDialogActivity.class);
+        startActivityForResult(intent, 5);
+    }
 
     @OnClick(R.id.animator_bt)
     public void toAnimator(){
@@ -122,7 +128,7 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
             case 4: toastShort("ABCD Activity");
                 break;
             case 5:
-                toastShort("Timer Activity");
+                toastShort("Quiz 4 Dialog Activity");
             default:
         }
     }
@@ -135,21 +141,26 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
     }
     @Override
     public boolean onTouch(View v, MotionEvent event){
-        return mGestureDirector.onTouchEvent(event);
+                mGestureDirector.onTouchEvent(event);
+        return true;
     }
     private class simpleGestureListener extends GestureDetector.SimpleOnGestureListener{
         public boolean onDown(MotionEvent e){
-//            UtilLog.logD("MyGesture", "onDown");
-//            toastShort( "onDown");
-            return false;
+            UtilLog.logD("MyGesture", "onDown");
+            toastShort( "onDown");
+            return true;
         }
         public void onShowPress(MotionEvent e){
-//            UtilLog.logD("MyGesture", "onShowPress");
-//            toastShort( "onShowPress");
+            UtilLog.logD("MyGesture", "onShowPress");
+            toastShort( "onShowPress");
+
+            ;
+
         }
         public void onLongPress(MotionEvent e){
-//            UtilLog.logD("MyGesture", "onLongPress");
-//            toastShort( "onLongPress");
+            UtilLog.logD("MyGesture", "onLongPress");
+            toastShort( "onLongPress");
+
         }
         public boolean onSingleTapUp(MotionEvent e){
             UtilLog.logD("MyGesture", "onSingleTapUp");
@@ -167,6 +178,7 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
             return true;
         }
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float VelocityY){
+            UtilLog.logD("MyGesture", "onFling");
             toastShort( "onFling");
             return true;
         }
