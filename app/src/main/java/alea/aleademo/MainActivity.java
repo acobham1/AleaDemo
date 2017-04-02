@@ -1,19 +1,17 @@
 package alea.aleademo;
 
+import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import java.util.Timer;
-
-import alea.aleademo.R;
 import alea.aleademo.bean.Book;
 import alea.aleademo.util.QuizDialogActivity;
 import alea.aleademo.util.TimerActivity;
@@ -22,17 +20,37 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static alea.aleademo.R.id.bt2;
-import static alea.aleademo.R.id.button_right;
-import static android.R.attr.data;
-
 public class MainActivity extends BaseActivity implements View.OnTouchListener {
 
     private ImageButton bt1;
     private ImageButton bt3;
+    int counter = 0;
     private GestureDetector mGestureDirector;
 
+    @BindView(R.id.hw_4)
+    LinearLayout linearHw4;
+
+
     @BindView(R.id.main_fl) FrameLayout fl;
+
+
+    @OnClick(R.id.button_left)
+    public void toLeftButton(){
+        setContentView(R.layout.homework_4);
+//
+// if(counter==0){
+//            ObjectAnimator animator = ObjectAnimator.ofFloat(linearHw4,"translationX", 0, 950, 950, 950, 950);
+//            animator.setDuration(1000);
+//            animator.start();
+//            counter++;
+//        }
+//        else{
+//            ObjectAnimator animator = ObjectAnimator.ofFloat(linearHw4, "translationX", 950, 0, 0, 0, 0);
+//            animator.setDuration(1000);
+//            animator.start();
+//            counter=0;
+//        }
+    }
 
     @OnClick(R.id.quiz_four_bt)
     public void toQuiz4Button(){
@@ -168,20 +186,44 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
             return true;
         }
         public boolean onSingleTapConfirmed(MotionEvent e){
-            UtilLog.logD("MyGesture", "onSingleTapConfirmed");
+            UtilLog.logD("MyGesture", "onSingleTapConfirmed" + e);
             toastShort( "onSingleTapConfirmed");
+            if(counter == 1){
+                ObjectAnimator animator = ObjectAnimator.ofFloat(linearHw4, "translationX", 950, 0, 0, 0);
+                animator.setDuration(1000);
+                counter=0;
+                animator.start();
+            }
             return true;
         }
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY){
             UtilLog.logD("MyGesture", "onScroll:" + (e2.getX() -e1.getX()) + "  " +distanceX);
-            toastShort( "onScroll");
+            Context context = getApplicationContext();
+            Toast toast = Toast.makeText(context, "onScroll" ,Toast.LENGTH_SHORT);
+            toast.show();
             return true;
         }
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float VelocityY){
-            UtilLog.logD("MyGesture", "onFling");
-            toastShort( "onFling");
+            UtilLog.logD("MyGesture", "onFling" + (e1.getY() - e2.getY() + " " + velocityX));
+            Context context = getApplicationContext();
+            Toast toast = Toast.makeText(context, "onFling" ,Toast.LENGTH_SHORT);
+
+            if(counter == 0){
+                ObjectAnimator animator = ObjectAnimator.ofFloat(linearHw4, "translationX", 0, 1000, 950, 950, 950);
+                animator.setDuration(1000);
+                animator.start();
+                counter++;
+            }else{
+                ObjectAnimator animator = ObjectAnimator.ofFloat(linearHw4, "translationX", 950, 0, 0, 0, 0);
+                animator.setDuration(1000);
+                animator.start();
+                counter=0;
+            }
+            toast.show();
+
             return true;
         }
+
         public boolean onDoubleTap(MotionEvent e){
             toastShort( "onDoubleTap");
             return true;
